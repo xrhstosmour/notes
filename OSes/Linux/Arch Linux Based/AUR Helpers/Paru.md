@@ -10,6 +10,8 @@
 	2. Add ```SkipReview``` keyword
 
 ## Commands
-* To remove a package without its dependencies: ```paru -Rdd <package>```
-* To remove a package and its dependencies: ```paru -Rsc <package>```
-* To update all the packages intalled: ```paru -Syu```
+* Remove a package without its dependencies: ```paru -Rdd <package>```
+* Remove a package and its dependencies: ```paru -Rsc <package>```
+* Update all the packages installed: ```paru -Syu```
+* List all installed packages: ```paru -Q```
+- Remove all orphan packages: `paru -Rsn $(paru -Qdtq)`
