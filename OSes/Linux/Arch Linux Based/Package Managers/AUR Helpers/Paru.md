@@ -1,4 +1,4 @@
-#arch #aur #package-manager
+#arch-linux #aur #package-manager
 1. ```sudo pacman -S --needed base-devel```
 2. ```git clone https://aur.archlinux.org/paru.git && cd paru && makepkg -si && cd .. && sudo rm -rf paru```
 3. ```paru -S --needed rustup && rustup default stable```
@@ -14,4 +14,4 @@
 * Remove a package and its dependencies: ```paru -Rsc <package>```
 * Update all the packages installed: ```paru -Syu```
 * List all installed packages: ```paru -Q```
-- Remove all orphan packages: `paru -Rsn $(paru -Qdtq)`
+* Remove all orphan packages: `paru -Rsn $(paru -Qdtq)`

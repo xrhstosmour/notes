@@ -10,6 +10,7 @@
 6. Execute the [Update Procedure](obsidian://open?vault=Notes&file=OSes%2FLinux%2FDebian%2FUpdate%20Procedure).
 
 - - -
+
 ## Troubleshooting
 * In case you can't update to bullseye version, try changing the ```sources.list``` content to:
 ```

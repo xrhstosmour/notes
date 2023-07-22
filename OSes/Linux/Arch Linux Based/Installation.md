@@ -1,4 +1,4 @@
-#arch #installation #archinstall
+#arch-linux #installation #archinstall
 1. Download the latest Arch Linux ISO image from [here](http://ftp.cc.uoc.gr/mirrors/linux/archlinux/iso/latest/).
 2. Burn the ISO to a USB drive using Rufus or Etcher. Further help can be found [here](https://cerebrux.net/2018/03/15/%ce%b5%cf%8d%ce%ba%ce%bf%ce%bb%ce%b7-%ce%b5%ce%b3%ce%b3%cf%81%ce%b1%cf%86%ce%ae-iso-%ce%ba%ce%b1%ce%b9-img-%ce%b1%cf%81%cf%87%ce%b5%ce%af%cf%89%ce%bd-%cf%83%ce%b5-usb-sd-%ce%ba%ce%ac%cf%81%cf%84/).
     - As partition scheme choose GPT.
