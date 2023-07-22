@@ -1,0 +1,2 @@
+#linux #troubleshooting #errors
+- In case you can't setup correctly your datetime (dead CMOS battery), to avoid errors while fetching packages type the following command: ```sudo timedatectl set-ntp true```
