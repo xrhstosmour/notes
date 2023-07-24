@@ -8,4 +8,4 @@ The following procedure is only applicable for coding at Windows machines, using
 - - -
 
 ## Troubleshooting
-* In case you can't build the code or it does not run successfully, try download the ```SAPBusinessOneSDK.dll``` from the SAP Business One server, located at: ```C:\Program Files (x86)\SAP\SAP Business One SDK\Lib\``` and import the reference via Browse at Visual Studio.
+* In case you can't build the code or it does not run successfully, try download the ```SAPBusinessOneSDK.dll``` from the SAP Business One server, located at: ```C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\SAPBusinessOneSDK\v4.0_1.0.0.1__c7c3cb60e45d119f``` and import the reference via Browse at Visual Studio.
