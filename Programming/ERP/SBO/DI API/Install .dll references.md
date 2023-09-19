@@ -1,5 +1,5 @@
 #sbo #erp #dll
-The following procedure is only applicable for coding at Windows machines, using the Visual Studio.
+The following procedure is only applicable for coding at Windows machines, using the Visual Studio:
   1. Install both x64 and x32 SAP Business One DI API.
   2. Open CMD as administrator.
   3. Type: ```regsvr32 "C:\Program Files\SAP\SAP Business One DI API\DI API <DI_API_VERSION>\SAPbobsCOM<DI_API_VERSION>.dll"```
