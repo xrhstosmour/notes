@@ -38,7 +38,7 @@ BoMStockCTE AS (
         INNER JOIN StockCTE S ON B.ItemCode = S.ItemCode
     GROUP BY B.Code
 )
-SELECT COALESCE(E.Code, S.ItemCode) AS ItemCode,
+SELECT DISTINCT COALESCE(E.Code, S.ItemCode) AS ItemCode,
     CASE
         WHEN E.Code IS NOT NULL THEN E.BoMStock
         ELSE S.OnHand
