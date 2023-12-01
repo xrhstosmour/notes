@@ -38,6 +38,24 @@
     - Redirect URI (Type: SPA)
 14. Enable Open API-backend communication via **API permissions** in the **Manage** tab. Add the permission for the scope created in step 12.
 
+### Workflow
+
+1. **Initiate Login Process**
+   - Get the constructed Azure login URL.
+
+2. **User Authentication**
+   - Upon receiving the response, open the provided URL in a web browser.
+   - Log in using your Microsoft account credentials.
+
+3. **Consent and Authorization**
+   - Follow the prompts to provide consent and authorize the application.
+
+4. **Retrieve Authorization Code**
+   - After authorization, a code will be sent back as a query parameter in the redirect URI.
+
+5. **Token Exchange**
+   - Exchange the received code for a Bearer token.
+
 ### Additional Resources
 
 - For more details on setup and usage with FastAPI, visit [FastAPI Azure Auth](https://intility.github.io/fastapi-azure-auth/single-tenant/azure_setup).
