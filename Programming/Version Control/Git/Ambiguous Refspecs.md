@@ -1,4 +1,4 @@
-#version-control #git #push #ambiguous-refspecs
+#version-control #git #push #ambiguous-refspecs #tag #branch
 
 When trying to push a branch named `<branch>` to a remote repository, the following error occurs: 
 
