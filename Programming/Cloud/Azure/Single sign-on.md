@@ -28,15 +28,17 @@
     - Who can consent
     - Admin/User consent display name
     - Admin/User consent description
-    - State
+13. Navigate to **Authorized client applications**, select **Add a client application**. Enter the Client ID and ensure the Authorized scope is checked before adding the application. 
+14. Under **API permissions** in the **Manage** tab, choose **Add a permission**. In the **Microsoft APIs** section, select **Microsoft Graph**. Choose **Delegated permissions**, navigate to **Directory**, and select **Directory.AccessAsUser.All** and **Directory.Read.All**. Click **Add permissions**. Finally, grant admin consent for these new permissions. 
+15. In the same section, click **Add a permission**, then go to **APIs my organization uses**. Select your API created in step 1, opt for **Delegated permissions**, and select the scope defined in step 12. Conclude by granting admin consent for these new permissions.
 
 ### Open API OAuth2 Setup
 
-13. Repeat steps 6, 7, and 8 for Open API OAuth2 setup:
+16. Repeat steps 6, 7, and 8 for Open API OAuth2 setup:
     - Name
     - Tenant type
     - Redirect URI (Type: SPA)
-14. Enable Open API-backend communication via **API permissions** in the **Manage** tab. Add the permission for the scope created in step 12.
+17. Enable Open API-backend communication via **API permissions** in the **Manage** tab. Add the permission for the scope created in step 12.
 
 ### Workflow
 
