@@ -25,11 +25,12 @@
 11. In the **Manage** tab, go to **Expose an API** > **Add a scope**. Use the suggested scope and save.
 12. Fill in the following scope details and set State to Enabled:
     - Scope name
+	    - **Use `user_impersonation` as Scope name in case of `Single Tenant` application, because it is the only option which seems to be working**
     - Who can consent
     - Admin/User consent display name
     - Admin/User consent description
-13. Navigate to **Authorized client applications**, select **Add a client application**. Enter the Client ID and ensure the Authorized scope is checked before adding the application. 
-14. Under **API permissions** in the **Manage** tab, choose **Add a permission**. In the **Microsoft APIs** section, select **Microsoft Graph**. Choose **Delegated permissions**, navigate to **Directory**, and select **Directory.AccessAsUser.All** and **Directory.Read.All**. Click **Add permissions**. Finally, grant admin consent for these new permissions. 
+13. Navigate to **Authorized client applications**, select **Add a client application**. Enter the Client ID and ensure the Authorized scope is checked before adding the application.
+14. Under **API permissions** in the **Manage** tab, choose **Add a permission**. In the **Microsoft APIs** section, select **Microsoft Graph**. Choose **Delegated permissions**, navigate to **Directory**, and select **Directory.AccessAsUser.All** and **Directory.Read.All**. Click **Add permissions**. Finally, grant admin consent for these new permissions.
 15. In the same section, click **Add a permission**, then go to **APIs my organization uses**. Select your API created in step 1, opt for **Delegated permissions**, and select the scope defined in step 12. Conclude by granting admin consent for these new permissions.
 
 ### Open API OAuth2 Setup
