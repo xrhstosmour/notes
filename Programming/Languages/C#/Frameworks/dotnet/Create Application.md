@@ -1,4 +1,4 @@
-# application #dotnet #packages
+#application #dotnet #packages
 
 1. **Create an .NET application template**
 
