@@ -1,6 +1,7 @@
-#wsl-2 #hyper-v #linux #distro 
+#wsl-2 #hyper-v #linux #distro
 
 Follow these steps to install Windows Subsystem for Linux (WSL) version 2 on your Windows system.
+
 ## Preliminary Windows Security Settings
 
 1. **Control Flow Guard (CFG) Settings**:
@@ -16,11 +17,13 @@ Follow these steps to install Windows Subsystem for Linux (WSL) version 2 on you
 Open PowerShell as Administrator and execute the following commands:
 
 1. **Enable Virtual Machine Platform**:
+
 ``` powershell
 dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
 ```
 
 2. **Enable Windows Subsystem for Linux**:
+
 ``` powershell
 dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
 ```
@@ -35,18 +38,23 @@ dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux 
 Use PowerShell to set WSL 2 as the default version and to manage distributions:
 
 1. **Set Default WSL Version to 2**:
+
 ``` powershell
 wsl --set-default-version 2
 ```
 
 2. **Install Your Preferred Linux Distribution**:
+
    - Unregister a previous version (if applicable):
-``` powershell
-wsl --unregister <disto_name>
-```
+
+   ``` powershell
+   wsl --unregister <disto_name>
+   ```
+
    - Install a new distribution:
-``` powershell
-wsl --install -d <disto_name>
-```
+
+   ``` powershell
+   wsl --install -d <disto_name>
+   ```
 
 Replace `<disto_name>` with the actual name of the Linux distribution you wish to install (e.g., Ubuntu, Debian, etc.).

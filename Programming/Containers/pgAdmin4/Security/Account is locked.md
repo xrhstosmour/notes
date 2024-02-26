@@ -1,4 +1,7 @@
 #pgAdmin4 #account #security
+
+Follow these steps to unlock pgadmin4 locked account.
+
 1. ```sudo docker exec -u root -it <your_container_name> /bin/sh```
 2. ```cd ../var/lib/pgadmin```
 3. ```apk add sqlite```
