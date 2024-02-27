@@ -7,10 +7,13 @@ Follow these steps to install Windows Subsystem for Linux (WSL) version 2 on you
 1. **Control Flow Guard (CFG) Settings**:
    - Navigate to *Windows Security* > *App & Browser Control* > *Exploit Protection Settings*.
    - Under *System Settings*, ensure *Control Flow Guard (CFG)* is set to *Use default (On)*.
-   - Under *Program Settings*, add entries for the following:
+   - Under *Program Settings*, add entries for the following if not exist:
      - `C:\Windows\System32\vmcompute.exe`
      - `C:\Windows\System32\vmwp.exe`
-   - For both entries, set *Control Flow Guard* to *Override System Settings > On > Use Strict CFG*.
+   - For `C:\Windows\System32\vmcompute.exe`, scroll down to *Control Flow Guard (CFG)* and uncheck *Override system settings*.
+   - For `C:\Windows\System32\vmwp.exe`, set *Control Flow Guard* to *Override System Settings > On > Use Strict CFG*.
+
+2. **Restart the machine**.
 
 ## Enable Required Features via PowerShell
 
@@ -35,15 +38,21 @@ dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux 
 
 ## Configure WSL 2
 
-Use PowerShell to set WSL 2 as the default version and to manage distributions:
+Use PowerShell to update WSL, set WSL 2 as the default version and to manage distributions:
 
-1. **Set Default WSL Version to 2**:
+1. **Update WSL**:
+
+``` powershell
+wsl --update
+```
+
+2. **Set Default WSL Version to 2**:
 
 ``` powershell
 wsl --set-default-version 2
 ```
 
-2. **Install Your Preferred Linux Distribution**:
+3. **Install Your Preferred Linux Distribution**:
 
    - Unregister a previous version (if applicable):
 
