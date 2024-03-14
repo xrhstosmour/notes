@@ -1,4 +1,11 @@
-#mssql #database #http-post 
+#mssql #database #http-post #ole #http-functionality
+
+### Prerequisites
+
+Before starting, ensure you have configured the below:
+1. [[Enable Functionality]]
+2. [[Grant OLE Execution Permissions]]
+### Create Store Procedure
 
 Use the following SQL script to create a procedure for executing HTTP JSON POST calls to an API endpoint:
 
@@ -30,4 +37,17 @@ BEGIN
     -- Clean up the OLE object.
     EXEC sp_OADestroy @Object;
 END;
+```
+
+### Example Usage
+
+``` sql
+-- Declare variables needed for the HTTP POST call.
+DECLARE @url NVARCHAR(MAX) = N'<endpoint_url>';
+DECLARE @bearer_token NVARCHAR(MAX) = N'<bearer_token>';
+DECLARE @json_body NVARCHAR(MAX) = N'<json_body>';
+DECLARE @response NVARCHAR(MAX);
+
+-- Make the HTTP POST call.
+EXEC dbo.http_post @url, @bearer_token, @json_body, @response OUTPUT;
 ```
