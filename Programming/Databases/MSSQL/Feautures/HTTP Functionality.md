@@ -1,8 +1,17 @@
 #mssql #database #http-functionality
-To enable HTTP functionality inside the Microsoft SQL Server, run the following commands:
+
+Integrating SQL Server with external services via HTTP requests requires the configuration of SQL Server to enable OLE Automation Procedures. Follow this guide to set up for making HTTP calls.
+
 ``` sql 
-exec [DBO].sp_configure 'show advanced options', 1;
+-- Enable advanced options
+sp_configure 'show advanced options', 1;
+GO
 RECONFIGURE;
-exec [DBO].sp_configure 'Ole Automation Procedures', 1;
+GO
+
+-- Enable OLE Automation Procedures
+sp_configure 'Ole Automation Procedures', 1;
+GO
 RECONFIGURE;
+GO
 ```
