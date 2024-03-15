@@ -14,7 +14,7 @@ CREATE PROCEDURE dbo.http_post
     @url NVARCHAR(MAX),
     @bearer_token NVARCHAR(MAX) = NULL, -- Default to NULL if not provided.
     @json_body NVARCHAR(MAX) = NULL, -- Default to NULL if not provided.
-    @response NVARCHAR(MAX) OUTPUT
+    @response VARCHAR(8000) OUTPUT
 AS
 BEGIN
 
@@ -48,6 +48,9 @@ BEGIN
 
     -- Clean up the OLE object.
     EXEC sp_OADestroy @Object;
+
+	-- Return the response.
+	SELECT @response
 END;
 ```
 
