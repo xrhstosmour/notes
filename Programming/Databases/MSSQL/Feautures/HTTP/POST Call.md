@@ -12,27 +12,39 @@ Use the following SQL script to create a procedure for executing HTTP JSON POST 
 ``` sql
 CREATE PROCEDURE dbo.http_post
     @url NVARCHAR(MAX),
-    @bearer_token NVARCHAR(MAX),
-    @json_body NVARCHAR(MAX),
+    @bearer_token NVARCHAR(MAX) = NULL, -- Default to NULL if not provided.
+    @json_body NVARCHAR(MAX) = NULL, -- Default to NULL if not provided.
     @response NVARCHAR(MAX) OUTPUT
 AS
 BEGIN
+
+    -- Declare the OLE object.
     DECLARE @Object INT;
+
+    -- Declare a variable for the full authorization header.
+    DECLARE @authorization_header NVARCHAR(MAX);
 
     -- Initialize the OLE object for making HTTP requests.
     EXEC sp_OACreate 'MSXML2.XMLHTTP', @Object OUT;
     EXEC sp_OAMethod @Object, 'open', NULL, 'post', @url, 'false';
     EXEC sp_OAMethod @Object, 'setRequestHeader', NULL, 'accept', 'application/json';
     EXEC sp_OAMethod @Object, 'setRequestHeader', NULL, 'Content-Type', 'application/json';
-    EXEC sp_OAMethod @Object, 'setRequestHeader', NULL, 'Authorization', CONCAT(N'Bearer ', @bearer_token);
 
-    -- Send the HTTP POST request with the JSON body.
-    EXEC sp_OAMethod @Object, 'send', NULL, @json_body;
+    -- Include the Authorization header only if a bearer token is provided.
+    IF @bearer_token IS NOT NULL
+    BEGIN
+        SET @authorization_header = CONCAT(N'Bearer ', @bearer_token);
+        EXEC sp_OAMethod @Object, 'setRequestHeader', NULL, 'Authorization', @authorization_header;
+    END
+
+    -- Send the HTTP POST request with the JSON body if provided.
+    IF @json_body IS NOT NULL
+    BEGIN
+        EXEC sp_OAMethod @Object, 'send', NULL, @json_body;
+    END
 
     -- Retrieve the response.
     EXEC sp_OAMethod @Object, 'responseText', @response OUTPUT;
-
-    -- Return the response if needed.
 
     -- Clean up the OLE object.
     EXEC sp_OADestroy @Object;
