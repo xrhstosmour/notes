@@ -43,14 +43,11 @@ BEGIN
         EXEC sp_OAMethod @Object, 'send', NULL, @json_body;
     END
 
-    -- Retrieve the response.
+    -- Retrieve the response to return it.
     EXEC sp_OAMethod @Object, 'responseText', @response OUTPUT;
 
     -- Clean up the OLE object.
     EXEC sp_OADestroy @Object;
-
-	-- Return the response.
-	SELECT @response
 END;
 ```
 
