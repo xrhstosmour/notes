@@ -7,10 +7,13 @@ A module in Ruby is a collection of methods, constants, and class variables. Mod
 ``` ruby
 module MyModule
   # Module content goes here.
+  # Do not add self. before the methods if you want to use them via include.
 end
 ```
 
 ## Usage
+
+More details about the `LOAD_PATH` and `require` functionality can be found at the [[Dependencies]] notes.
 
 ``` ruby
 $LOAD_PATH << './path/to/module'
