@@ -2,7 +2,7 @@
 
 ## Gems
 
-Ruby gems are packages of Ruby code that add functionality to your Ruby applications. You can install gems using the `gem install` command in your terminal.
+Ruby gems are packages of Ruby code that add functionality to your Ruby applications. You can install gems hosted at `https://rubygems.org/`using the `gem install` command in your terminal.
 
 For example, to install the `bcrypt` gem, you would run:
 
@@ -64,6 +64,7 @@ Now, Ruby will look in the `./lib` directory when you use `require 'my_module
 `include` is a method used in Ruby to mix in module methods into a class. When a class includes a module, it gains access to all of its methods.
 
 Here's an example:
+
 ``` ruby
 module MyModule
   def hello
