@@ -12,3 +12,5 @@ This approach helps to streamline the commit history of a development branch bef
 - **Ideal for Development Branches**: It's best suited for cleaning up a development branch prior to merging into the master branch, ensuring a tidy and coherent commit history.
 
 For more detailed guidance on using `--fixup` and `--autosquash`, check out this helpful resource: [Git Tip: Keep Your Branch Clean with Fixup and Autosquash](https://fle.github.io/git-tip-keep-your-branch-clean-with-fixup-and-autosquash.html).
+
+For more detailed guidance on automating `--fixup`, check out these helpful resources: [Fixing commits with git commit --fixup and git rebase --autosquash](https://jordanelver.co.uk/blog/2020/06/04/fixing-commits-with-git-commit-fixup-and-git-rebase-autosquash/#automating-further) and [fzf](https://github.com/junegunn/fzf).
