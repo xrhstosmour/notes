@@ -1,4 +1,4 @@
-#active-record #relationships #many-to-many #association-table #ruby #rails
+#active-record #relationships #many-to-many #association-table #ruby #rails #orm
 
 When dealing with many-to-many relationships in the Ruby on Rails framework, there are two available options.
 
