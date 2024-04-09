@@ -15,7 +15,7 @@ defaults write com.apple.finder ShowStatusBar -bool true
 
 - Show hidden files in Finder windows:
 ``` bash
-defaults write com.apple.finder AppleShowAllFiles true; killall Finder
+defaults write com.apple.finder AppleShowAllFiles true
 ```
 
 - Show files's extensions:
@@ -27,7 +27,7 @@ defaults write -g AppleShowAllExtensions -bool true
 
 - Show all hidden files:
 ``` bash
-defaults write com.apple.Finder AppleShowAllFiles true; killall Finder
+defaults write com.apple.Finder AppleShowAllFiles true
 ```
 
 - Show hidden `/Volumes` and `~/Library` folders:
@@ -50,11 +50,17 @@ defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
 defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
 ```
 
+- Stop .DS_Store creation at network shares and removable drives:
+``` bash
+defaults write com.apple.desktopservices DSDontWriteNetworkStores true;
+defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
+```
+
 #### Dock
 
 - Disable single application mode:
 ``` bash
-defaults write com.apple.dock single-app -bool false; 
+defaults write com.apple.dock single-app -bool false
 ```
 
 - Disable animation when opening applications:
