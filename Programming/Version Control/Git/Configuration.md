@@ -30,3 +30,42 @@ git config --global push.default current
 ``` bash
 autofixup = "!git log -n 50 --pretty=format:'%h %s' --no-merges | fzf | cut -c -7 | xargs -o git commit --fixup"
 ```
+
+**In order for the above to function correctly, you must install the [fzf](https://github.com/junegunn/fzf") package.**
+
+- Set aliases to your shell startup configuration file:
+
+``` bash
+# Aliases for Git operations.
+alias g="git"
+alias gl="git log"
+alias gpl="git pull"
+alias gps="git push"
+alias gpsf="git push -f"
+alias gft="git fetch"
+alias ga="git add"
+alias gc="git commit"
+alias gcp="git cherry-pick"
+alias gst="git status"
+alias gd="git diff"
+alias gds="git diff --staged"
+alias gdsn="git diff --staged --name-only"
+alias gco="git checkout"
+alias grt="git restore"
+alias grts="git restore --staged"
+alias grba="git rebase --abort"
+alias grbc="git rebase --continue"
+alias grbs="git rebase --skip"
+alias gb="git branch"
+alias gbd="git branch -d"
+alias gbdf="git branch -D"
+alias gsth="git stash"
+alias gsthl="git stash list"
+alias gstha="git stash apply"
+alias gsthp="git stash pop"
+alias gsthd="git stash drop"
+alias gsths="git stash show"
+alias gfx="git commit --fixup"
+alias gafx="git autofixup"
+alias gfr="git fetch && git rebase -i origin/master --autosquash --autostash"
+```
