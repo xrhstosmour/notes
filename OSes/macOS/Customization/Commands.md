@@ -127,6 +127,12 @@ defaults write com.apple.AppleMultitouchTrackpad TrackpadRightClick -bool true;
 ``` bash
 defaults write -g com.apple.mouse.scaling 0.5
 ```
+
+- Invert mouse scroll:
+``` bash
+defaults write -g com.apple.swipescrolldirection -bool false
+```
+
 #### Sound
 
 - Disable sound on startup/boot:
