@@ -28,7 +28,7 @@ git config --global push.default current
 - Set aliases by appending below the `[alias]` section, at the `~/.gitconfig` file the below:
 
 ``` bash
-autofixup = "!git log -n 50 --pretty=format:'%h %s' --no-merges | fzf | cut -c -7 | xargs -o git commit --fixup"
+autofixup = "!git log -n 50 --pretty=format:'%h %s' --no-merges | grep -v '^[^ ]* fixup!' | fzf | cut -c -7 | xargs -o git commit --fixup"
 ```
 
 **In order for the above to function correctly, you must install the [fzf](https://github.com/junegunn/fzf") package.**
@@ -44,6 +44,7 @@ alias gps="git push"
 alias gpsf="git push -f"
 alias gft="git fetch"
 alias ga="git add"
+alias gap="git add -p"
 alias gc="git commit"
 alias gcp="git cherry-pick"
 alias gst="git status"
