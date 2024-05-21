@@ -28,7 +28,7 @@ git config --global push.default current
 - Set aliases by appending below the `[alias]` section, at the `~/.gitconfig` file the below:
 
 ``` bash
-autofixup = "!git log -n 50 --pretty=format:'%h | %s' --no-merges | while read -r line; do echo \"$line | $(git diff-tree --no-commit-id --name-only -r $(echo $line | awk '{print $1}') | tr '\n' ' ')\"; done | grep -v '^[^ ]* fixup!' | fzf | cut -c -7 | xargs -o git commit --fixup"
+autofixup = "!git log -n 50 --pretty=format:'%h | %s' --no-merges | while read -r line; do echo \"$line | $(git diff-tree --no-commit-id --name-only -r $(echo $line | awk '{print $1}') | tr '\n' ' ')\"; done | grep -v '^.* | fixup!' | fzf | cut -c -7 | xargs -o git commit --fixup"
 ```
 
 **In order for the above to function correctly, you must install the [fzf](https://github.com/junegunn/fzf") package.**
