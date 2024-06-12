@@ -72,4 +72,5 @@ alias gstss="git stash show"
 alias gfx="git commit --fixup"
 alias gafx="git autofixup"
 alias gfrb="git fetch && git rebase -i origin/master --autosquash --autostash"
+alias grcl="git prune && rm -rf ./.git/gc.log && git gc --prune=now && git remote prune origin"
 ```
