@@ -97,6 +97,11 @@ defaults write com.apple.dock mineffect -string "scale"
 defaults write com.apple.dock show-recents -bool false
 ```
 
+- Minimize windows into application icon:
+``` bash
+defaults write com.apple.dock minimize-to-application -bool true
+```
+
 #### Menu Bar
 
 - Display the time in seconds and reveal host info in login window:
