@@ -92,6 +92,11 @@ defaults write com.apple.dock show-process-indicators -bool true
 defaults write com.apple.dock mineffect -string "scale"
 ```
 
+- Hide recent applications:
+``` bash
+defaults write com.apple.dock show-recents -bool false
+```
+
 #### Menu Bar
 
 - Display the time in seconds and reveal host info in login window:
