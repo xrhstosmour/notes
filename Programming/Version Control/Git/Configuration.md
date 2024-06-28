@@ -54,6 +54,7 @@ alias gdsn="git diff --staged --name-only"
 alias gco="git checkout"
 alias grstr="git restore"
 alias grstrs="git restore --staged"
+alias grstrss="git restore --staged -p"
 alias grst='git reset HEAD~'
 alias grb="git rebase -i --autosquash HEAD~"
 alias grba="git rebase --abort"
