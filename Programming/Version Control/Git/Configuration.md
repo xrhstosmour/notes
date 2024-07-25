@@ -33,6 +33,16 @@ autofixup = "!git log -n 50 --pretty=format:'%h | %s' --no-merges | while read -
 
 **In order for the above to function correctly, you must install the [fzf](https://github.com/junegunn/fzf") package.**
 
+- Set functions to your shell startup configuration file:
+
+``` bash
+# Git functions.
+stash_with_default_name() {
+  local name="${1:-temp_$(date +'%d_%m_%YT%H_%M_%S')}"
+  git stash push -u -m "$name"
+}
+```
+
 - Set aliases to your shell startup configuration file:
 
 ``` bash
@@ -65,7 +75,7 @@ alias gbr="git branch"
 alias gbrd="git branch -d"
 alias gbrdf="git branch -D"
 alias gbrr="git branch -m"
-alias gsts="git stash --include-untracked"
+alias gsts="stash_with_default_name"
 alias gstsl="git stash list"
 alias gstsa="git stash apply"
 alias gstsp="git stash pop"
