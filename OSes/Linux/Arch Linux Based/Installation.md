@@ -4,8 +4,14 @@
     - As partition scheme choose GPT.
     - After clicking start choose the DD image mode.
 3. Start the installation terminal by choosing the first option after boot.
-4. Type ```archinstall``` to configure the installation.
-5. Below you can find the modification options:
+4. To connect to WiFi, use the following commands:
+
+- `iwctl`
+- Find your device name using: `device list`
+- `station <device> connect <SSID>` then enter the password when prompted.
+
+5. Type ```archinstall``` to configure the installation.
+6. Below you can find the modification options:
 
 | Options | Choices |
 | --- | --- |
