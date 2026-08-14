@@ -106,3 +106,50 @@ student = Student.new('John', 'Doe', 'john.doe@example.com', 'johndoe')
 ```
 
 In this case, `student` is a new `Student` object with `first_name` set to `'Christos'`, `last_name` set to `'Mourtogiannis'`, `email` set to `'c.mourtogiannis@gmail.com'`, and `username` set to `'christos_mourtogiannis'`.
+
+## Class-Level Methods
+
+`class << self` reopens the class itself and defines methods directly on it, useful for grouping several class-level methods together instead of prefixing each with `def self.`:
+
+``` ruby
+class Student
+  class << self
+    def find_by_username(username)
+      all.find { |student| student.username == username }
+    end
+
+    def all
+      @all ||= []
+    end
+  end
+end
+```
+
+## Memoization
+
+`@ivar ||= ...` caches the result of an expensive computation on first access. See [[Best Practices]] for the `defined?` guard needed when the cached value can be `nil`/`false`.
+
+## Equality
+
+By default, `==` compares object identity. Override it (and `eql?`/`hash` if the object is used as a `Hash` key or in a `Set`) to compare by value instead:
+
+``` ruby
+class Student
+  def ==(other)
+    other.is_a?(Student) && username == other.username
+  end
+  alias eql? ==
+
+  def hash
+    username.hash
+  end
+end
+```
+
+## Freezing
+
+`freeze` makes an object immutable, any attempt to mutate it afterward raises `FrozenError`. Useful for value objects and constants:
+
+``` ruby
+STUDENT_STATUSES = %w[active inactive graduated].freeze
+```
