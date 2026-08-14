@@ -11,6 +11,7 @@ This file documents the repository's structure and conventions for agents editin
 | `Programming/` | Programming notes, split by domain: `Cloud`, `Containers`, `Databases`, `ERP`, `Languages`, `Shell`, `Version Control`, `VMs` |
 | `Programming/Languages/` | One folder per language (`C#`, `Python`, `Ruby`, ...). A language folder may nest a `Frameworks/<Framework>/` subtree for framework-specific notes |
 | `Software/` | Notes about specific applications/tools, one folder per app |
+| `Hardware/` | Notes about physical hardware/cabling/device compatibility, not tied to a specific OS or app |
 
 ## Note conventions
 
