@@ -7,7 +7,7 @@ This file documents the repository's structure and conventions for agents editin
 
 | Path | Purpose |
 | ---- | ------- |
-| `OSes/` | Operating system notes: `Linux` (`Arch Linux Based`, `Common`, `Debian Based`), `macOS` (`Apple ID`, `Customization`), `Windows` (`VPN`, `WSL`) |
+| `OSes/` | Operating system notes: `Android`, `Linux` (`Arch Linux Based`, `Common`, `Debian Based`), `macOS` (`Apple ID`, `Customization`), `Windows` (several tool/category subfolders, e.g. `Networking`, `Services`, `IIS`) |
 | `Programming/` | Programming notes, split by domain: `Cloud`, `Containers`, `Databases`, `ERP`, `Languages`, `Shell`, `Version Control`, `VMs` |
 | `Programming/Languages/` | One folder per language (`C#`, `Python`, `Ruby`, ...). A language folder may nest a `Frameworks/<Framework>/` subtree for framework-specific notes |
 | `Software/` | Notes about specific applications/tools, one folder per app |
