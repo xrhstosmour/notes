@@ -64,3 +64,35 @@ end
 ```
 
 `prepend` is the tool for wrapping/decorating an existing method (e.g. adding logging around a library method) without editing or monkey-patching the original class body.
+
+## `include` vs `extend`: Method Visibility
+
+- `extend` is a public method, by design, it's meant to be called on the receiver itself (`SomeClass.extend(Mod)`), turning the module's methods into methods on that receiver directly.
+- `include` is a private method, meant to be called from inside the including class/module's own body (`include Mod`), not on an external receiver. This keeps mixing in a module a decision the class makes about itself, not something imposed from outside.
+
+## Hooks
+
+`Module`, `Class`, and `Object` support callback hooks that fire when a module is mixed in, define them to react to the event:
+
+``` ruby
+module Greetable
+  def self.included(base)
+    # Runs when `include Greetable` happens, `base` is the including class.
+  end
+
+  def self.extended(base)
+    # Runs when `some_object.extend(Greetable)` happens.
+  end
+
+  def self.prepended(base)
+    # Runs when `prepend Greetable` happens.
+  end
+end
+```
+
+## Pitfalls
+
+- Only `Module` instances can be extended/included/prepended, passing anything else raises a `TypeError`.
+- Including a module that's already in the ancestor chain (directly or via another ancestor) is a no-op.
+- A cyclic include (a module including something that already includes it) raises `ArgumentError`.
+- Defining singleton methods inside the module being mixed in has no effect on the receiver, singleton methods aren't picked up by `include`/`extend`/`prepend`.
