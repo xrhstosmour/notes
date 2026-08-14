@@ -11,6 +11,7 @@ This file documents the repository's structure and conventions for agents editin
 | `Programming/` | Programming notes, split by domain: `Cloud`, `Containers`, `Databases`, `ERP`, `Languages`, `Shell`, `Version Control`, `VMs` |
 | `Programming/Languages/` | One folder per language (`C#`, `Python`, `Ruby`, ...). A language folder may nest a `Frameworks/<Framework>/` subtree for framework-specific notes |
 | `Software/` | Notes about specific applications/tools, one folder per app |
+| `Hardware/` | Notes about physical hardware/cabling/device compatibility, not tied to a specific OS or app |
 
 ## Note conventions
 
@@ -42,7 +43,7 @@ This vault is git-tracked and may be shared. Before committing any note, especia
 
 ## Log
 
-`Log.md` at the repo root is an append-only, one-line-per-entry record of notable additions to the vault (new domains covered, large imports), newest first. Append to it, don't rewrite past entries.
+`LOG.md` at the repo root is an append-only, one-line-per-entry record of notable additions to the vault (new domains covered, large imports), newest first. Append to it, don't rewrite past entries.
 
 ## Verification
 
