@@ -38,3 +38,7 @@ class Author < ActiveRecord::Base
   # Other properties.
 end
 ```
+
+#### Which to Use
+
+Prefer the join-model approach (`has_many :through`) by default, even when the join table starts out with no extra columns. It's a real `ActiveRecord` model, so it can later gain its own columns (e.g. a `role` on a membership), callbacks, or validations without a schema migration to convert away from `has_and_belongs_to_many`. Reach for `has_and_belongs_to_many` only for a genuinely simple, unlikely-to-grow join with no foreseeable extra data.

@@ -2,82 +2,57 @@
 
 ## Gems
 
-Ruby gems are packages of Ruby code that add functionality to your Ruby applications. You can install gems hosted at `https://rubygems.org/`using the `gem install` command in your terminal.
-
-For example, to install the `bcrypt` gem, you would run:
+Ruby gems are packages published to [rubygems.org](https://rubygems.org/). Install with `gem install <name>`, optionally pinning a version:
 
 ``` shell
-gem install bcrypt
+gem install bcrypt -v 3.1.7
 ```
 
-You can also specify a version of the gem to install:
+## Require and `$LOAD_PATH`
 
-``` shell
-gem install bcrypt -v 3.1.7
-```
-
-## Require
-
-In Ruby, `require` is a method that is used to load another file and execute all its statements. This is typically used to load Ruby libraries or modules.
-
-Here's an example:
+`require` loads a file once and executes it, used to pull in gems or local files. `$LOAD_PATH` is the array of directories Ruby searches to resolve a `require`:
 
 ``` ruby
-require 'bcrypt'
+$LOAD_PATH << './lib'
+require 'my_module'
 ```
 
-In this case, the `bcrypt` library is loaded, providing a simple way to securely hash passwords.
-You can then iterate through different paths of the module using the `::` and access different functions of it using the `.`. For instance the `BCrypt::Password.create` function is a specific method provided by the `bcrypt` gem, to create a hashed password.
-
-## $LOAD_PATH
-
-`$LOAD_PATH` is a global array in Ruby that contains the list of directories to be searched when loading files with `require`.
-
-If you want to add a directory to this array, you can use the `<<` operator:
-
-``` ruby
-$LOAD_PATH << '/path/to/my/directory'
-```
-
-Now, Ruby will also look in `/path/to/my/directory` when you use `require`.
-
-For example, if you have a directory structure like this:
-
-``` txt
-/my_project
-  /lib
-    my_module.rb
-  main.rb
-```
-
-And you want to use `my_module.rb` in `main.rb`, you could modify `$LOAD_PATH` in `main.rb` like this:
-
-``` ruby
-$LOAD_PATH << './lib'
-require 'my_module'
-```
-
-Now, Ruby will look in the `./lib` directory when you use `require 'my_module'`, and `my_module.rb` will be loaded.
+Namespaced constants inside a loaded file are reached with `::`, e.g. `BCrypt::Password.create` is the `create` method on the `Password` class nested in the `BCrypt` module.
 
 ## Include
 
-`include` is a method used in Ruby to mix in module methods into a class. When a class includes a module, it gains access to all of its methods.
-
-Here's an example:
+`include` mixes a module's methods into a class as instance methods:
 
 ``` ruby
-module MyModule
+module Greetable
   def hello
     'Hello, world!'
   end
 end
 
 class MyClass
-  include MyModule
+  include Greetable
 end
 
-obj = MyClass.new
-puts obj.hello  # Outputs: Hello, world!
+MyClass.new.hello # => "Hello, world!"
 ```
 
-In this case, `MyClass` includes `MyModule`, so instances of `MyClass` can use the `hello` method.
+See [[Modules]] for `extend` and `prepend`, the other two ways to mix in a module.
+
+## Bundler
+
+[Bundler](https://bundler.io/) manages a project's gem dependencies declared in a `Gemfile`, resolving exact versions into `Gemfile.lock` so every environment installs the same set of gems.
+
+``` ruby
+# Gemfile
+source 'https://rubygems.org'
+
+gem 'bcrypt', '~> 3.1.7'
+
+group :development, :test do
+  gem 'rspec'
+  gem 'factory_bot'
+end
+```
+
+`bundle install` installs the gems from the `Gemfile` and writes/updates `Gemfile.lock`, commit the lockfile so installs are reproducible. Run scripts and commands through Bundler's resolved gem set with `bundle exec`, e.g. `bundle exec rspec`, so the loaded gem versions match what's in `Gemfile.lock` rather than whatever happens to be installed system-wide.
