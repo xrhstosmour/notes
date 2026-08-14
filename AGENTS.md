@@ -43,7 +43,7 @@ This vault is git-tracked and may be shared. Before committing any note, especia
 
 ## Log
 
-`Log.md` at the repo root is an append-only, one-line-per-entry record of notable additions to the vault (new domains covered, large imports), newest first. Append to it, don't rewrite past entries.
+`LOG.md` at the repo root is an append-only, one-line-per-entry record of notable additions to the vault (new domains covered, large imports), newest first. Append to it, don't rewrite past entries.
 
 ## Verification
 
