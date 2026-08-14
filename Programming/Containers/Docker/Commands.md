@@ -6,3 +6,15 @@
 - Delete all log files: ```sudo sh -c "truncate -s 0 /var/lib/docker/containers/*/*-json.log"```
 - Rename volumes: ```docker volume create --name <new_volume> && docker run --rm -it -v <old_volume>:/from -v <new_volume>:/to alpine ash -c 'cd /from ; cp -av . /to' && docker volume rm <old_volume>```
 - Delete all unused volumes: ```docker volume prune```
+- Create a container without starting it: ```docker create <image>```
+- Start one or more stopped containers: ```docker start -a <container_id>```
+- Create and start a container in one step, pulling the image if needed: ```docker run <image> <command>```
+- List running containers, add `-a` for all containers including exited ones: ```docker ps -a```
+- Gracefully stop a running container: ```docker stop <container_id>```
+- Show a container's logs: ```docker logs <container_id>```
+- Run a command in a running container, `-it` opens an interactive shell: ```docker exec -it <container_id> /bin/bash```
+- Remove one or more stopped containers, add `--force` to kill and remove a running one: ```docker rm <container_id>```
+- Remove all unused containers, networks, dangling images and build cache, add `--volumes` to also prune unused volumes: ```docker system prune --volumes```
+- Build, (re)create and start Compose services in the background: ```docker-compose up -d```
+- Rebuild Compose service images without using the build cache: ```docker-compose build --no-cache```
+- Stop and remove containers/networks created by Compose, add `-v` to also remove named volumes: ```docker-compose down -v```
