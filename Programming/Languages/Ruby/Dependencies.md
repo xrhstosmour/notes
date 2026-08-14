@@ -80,4 +80,22 @@ obj = MyClass.new
 puts obj.hello  # Outputs: Hello, world!
 ```
 
+## Bundler
+
+[Bundler](https://bundler.io/) manages a project's gem dependencies declared in a `Gemfile`, resolving exact versions into `Gemfile.lock` so every environment installs the same set of gems.
+
+``` ruby
+# Gemfile
+source 'https://rubygems.org'
+
+gem 'bcrypt', '~> 3.1.7'
+
+group :development, :test do
+  gem 'rspec'
+  gem 'factory_bot'
+end
+```
+
+`bundle install` installs the gems from the `Gemfile` and writes/updates `Gemfile.lock`, commit the lockfile so installs are reproducible. Run scripts and commands through Bundler's resolved gem set with `bundle exec`, e.g. `bundle exec rspec`, so the loaded gem versions match what's in `Gemfile.lock` rather than whatever happens to be installed system-wide.
+
 In this case, `MyClass` includes `MyModule`, so instances of `MyClass` can use the `hello` method.
